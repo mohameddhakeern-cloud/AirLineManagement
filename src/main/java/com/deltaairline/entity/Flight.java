@@ -12,6 +12,8 @@ public class Flight {
     private String flightName;
     private String source;
     private String destination;
+    private double price;
+    private int availableSeats;
 
     public Flight() {
     }
@@ -46,5 +48,21 @@ public class Flight {
 
     public void setDestination(String destination) {
         this.destination = destination;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public int getAvailableSeats() {
+        return availableSeats;
+    }
+
+    public void setAvailableSeats(int availableSeats) {
+        this.availableSeats = availableSeats;
     }
 }
