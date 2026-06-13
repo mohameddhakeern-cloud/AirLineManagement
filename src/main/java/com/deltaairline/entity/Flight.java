@@ -8,7 +8,6 @@ public class Flight {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     private String flightName;
     private String source;
     private String destination;
@@ -32,6 +31,11 @@ public class Flight {
 
     public void setFlightName(String flightName) {
         this.flightName = flightName;
+    }
+    
+    @Override
+    public String toString() {
+        return flightName;
     }
 
     public String getSource() {
