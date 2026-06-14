@@ -27,6 +27,12 @@
 <td>${b.flight.flightName}</td>
 <td>${b.bookingDate}</td>
 <td>${b.numberOfSeats}</td>
+
+<td>
+<a href="/cancelBooking/${b.id}">
+Cancel Ticket
+</a>
+</td>
 </tr>
 
 </c:forEach>

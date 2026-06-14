@@ -14,7 +14,7 @@ public class FlightController {
     @Autowired
     private FlightRepository repo;
 
-    @GetMapping("/")
+    @GetMapping("/flightHome")
     public String home() {
         return "index";
     }
@@ -22,6 +22,24 @@ public class FlightController {
     @GetMapping("/addFlight")
     public String addFlightPage() {
         return "addFlight";
+    }
+    
+    @GetMapping("/searchFlight")
+    public String searchPage() {
+
+        return "searchFlight";
+    }
+    
+    @PostMapping("/searchFlight")
+    public String searchFlight(@RequestParam String source,
+                               @RequestParam String destination,
+                               Model model) {
+
+        model.addAttribute(
+                "flights",
+                repo.findBySourceAndDestination(source, destination));
+
+        return "searchResult";
     }
 
     @PostMapping("/saveFlight")

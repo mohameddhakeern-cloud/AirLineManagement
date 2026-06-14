@@ -50,9 +50,21 @@ public class BookingController {
         booking.setNumberOfSeats(numberOfSeats);
         booking.setBookingDate(LocalDate.now());
 
-        bookingRepo.save(booking);
+        if (flight.getAvailableSeats() >= numberOfSeats) {
 
-        return "redirect:/viewBookings";
+            flight.setAvailableSeats(
+                    flight.getAvailableSeats() - numberOfSeats);
+
+            flightRepo.save(flight);
+
+            bookingRepo.save(booking);
+
+            return "redirect:/viewBookings";
+        }
+        else {
+
+            return "bookingFail";
+        }
     }
 
     @GetMapping("/viewBookings")
@@ -61,6 +73,24 @@ public class BookingController {
         model.addAttribute("bookings", bookingRepo.findAll());
 
         return "viewBookings";
+    }
+    
+    @GetMapping("/cancelBooking/{id}")
+    public String cancelBooking(@PathVariable int id) {
+
+        Booking booking = bookingRepo.findById(id).get();
+
+        Flight flight = booking.getFlight();
+
+        flight.setAvailableSeats(
+                flight.getAvailableSeats()
+                + booking.getNumberOfSeats());
+
+        flightRepo.save(flight);
+
+        bookingRepo.delete(booking);
+
+        return "redirect:/viewBookings";
     }
 
 }

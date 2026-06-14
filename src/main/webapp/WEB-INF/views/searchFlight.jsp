@@ -3,10 +3,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Search Flight</title>
 </head>
 <body>
+
+<h2>Search Flight</h2>
+
+<form action="/searchFlight" method="post">
+
+Source:
+
+<input type="text" name="source">
+
+<br><br>
+
+Destination:
+
+<input type="text" name="destination">
+
+<br><br>
+
+<input type="submit" value="Search">
+
+</form>
 
 </body>
 </html>

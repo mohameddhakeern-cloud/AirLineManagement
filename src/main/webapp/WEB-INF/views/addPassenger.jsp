@@ -25,7 +25,8 @@ Phone:
 Email:
 <input type="email" name="email"><br><br>
 
-<input type="submit" value="Save Passenger">
+<input type="submit" value="Save Passenger">    <input type="Reset" value="Reset Details">
+
 
 </form>
 
