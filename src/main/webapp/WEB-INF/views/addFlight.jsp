@@ -1,65 +1,70 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html;charset=UTF-8"
+pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="UTF-8">
+
 <title>Add Flight</title>
 
-<style>
+<link rel="stylesheet" href="/css/style.css">
 
-body{
-font-family:Arial;
-background:#f4f4f4;
-}
-
-.container{
-width:400px;
-margin:auto;
-margin-top:50px;
-background:white;
-padding:30px;
-border-radius:15px;
-box-shadow:0 0 10px gray;
-}
-
-input{
-width:100%;
-padding:12px;
-margin-top:10px;
-}
-
-button{
-width:100%;
-padding:12px;
-background:green;
-color:white;
-border:none;
-margin-top:20px;
-}
-
-</style>
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 </head>
 <body>
 
-<div class="container">
+<div class="form-container">
 
-<h2>Add Flight</h2>
+<h1>
+<i class="fa-solid fa-plane"></i>
+Add Flight
+</h1>
 
-<form action="saveFlight" method="post">
+<form action="/saveFlight" method="post">
 
-<input type="text" name="flightName" placeholder="Flight Name">
+<input
+class="input-box"
+type="text"
+name="flightName"
+placeholder="Flight Name"
+required>
 
-<input type="text" name="source" placeholder="Source">
+<input
+class="input-box"
+type="text"
+name="source"
+placeholder="Source"
+required>
 
-<input type="text" name="destination" placeholder="Destination">
+<input
+class="input-box"
+type="text"
+name="destination"
+placeholder="Destination"
+required>
 
-<input type="number" name="price" placeholder="Price">
+<input
+class="input-box"
+type="number"
+name="price"
+placeholder="Price"
+required>
 
-<input type="number" name="availableSeats" placeholder="Available Seats">
+<input
+class="input-box"
+type="number"
+name="availableSeats"
+placeholder="Available Seats"
+required>
 
-<button>Add Flight</button>
+<input
+class="submit-btn"
+type="submit"
+value="Add Flight">
 
 </form>
 

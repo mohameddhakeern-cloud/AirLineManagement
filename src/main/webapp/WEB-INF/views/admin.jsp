@@ -54,6 +54,42 @@ Search Flights
 
 </section>
 
+<section class="stats">
+
+<div class="stat-card">
+
+<i class="fa-solid fa-plane"></i>
+
+<h1>${flightCount}</h1>
+
+<p>Total Flights</p>
+
+</div>
+
+
+<div class="stat-card">
+
+<i class="fa-solid fa-user"></i>
+
+<h1>${passengerCount}</h1>
+
+<p>Total Passengers</p>
+
+</div>
+
+
+<div class="stat-card">
+
+<i class="fa-solid fa-ticket"></i>
+
+<h1>${bookingCount}</h1>
+
+<p>Total Bookings</p>
+
+</div>
+
+</section>
+
 
 <div class="container">
 

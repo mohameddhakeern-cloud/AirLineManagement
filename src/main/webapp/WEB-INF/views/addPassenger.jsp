@@ -1,34 +1,74 @@
-<%@ page language="java" contentType="text/html;charset=UTF-8"%>
+<%@ page language="java" contentType="text/html;charset=UTF-8"
+pageEncoding="UTF-8"%>
 
+<!DOCTYPE html>
 <html>
 <head>
+
+<meta charset="UTF-8">
+
 <title>Add Passenger</title>
+
+<link rel="stylesheet" href="/css/style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 </head>
 <body>
 
-<h2>Add Passenger</h2>
+<div class="form-container">
+
+<h1>
+<i class="fa-solid fa-user"></i>
+Add Passenger
+</h1>
 
 <form action="/savePassenger" method="post">
 
-Name:
-<input type="text" name="passengerName"><br><br>
+<input
+class="input-box"
+type="text"
+name="passengerName"
+placeholder="Passenger Name"
+required>
 
-Gender:
-<input type="text" name="gender"><br><br>
+<input
+class="input-box"
+type="text"
+name="gender"
+placeholder="Gender"
+required>
 
-Age:
-<input type="number" name="age"><br><br>
+<input
+class="input-box"
+type="number"
+name="age"
+placeholder="Age"
+required>
 
-Phone:
-<input type="text" name="phone"><br><br>
+<input
+class="input-box"
+type="text"
+name="phone"
+placeholder="Phone Number"
+required>
 
-Email:
-<input type="email" name="email"><br><br>
+<input
+class="input-box"
+type="email"
+name="email"
+placeholder="Email Address"
+required>
 
-<input type="submit" value="Save Passenger">    <input type="Reset" value="Reset Details">
-
+<input
+class="submit-btn"
+type="submit"
+value="Add Passenger">
 
 </form>
+
+</div>
 
 </body>
 </html>

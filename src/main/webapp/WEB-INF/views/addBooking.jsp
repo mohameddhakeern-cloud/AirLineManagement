@@ -1,52 +1,91 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<!DOCTYPE html>
 <html>
 <head>
-<title>Add Booking</title>
+
+<meta charset="UTF-8">
+
+<title>Book Flight</title>
+
+<link rel="stylesheet" href="/css/style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 </head>
 <body>
 
-<h2>Book Flight</h2>
+<div class="form-container">
+
+<h1>
+
+<i class="fa-solid fa-ticket"></i>
+
+Book Flight
+
+</h1>
 
 <form action="/saveBooking" method="post">
 
-Passenger:
-<select name="passengerId">
+<select class="input-box" name="passengerId">
+
+<option selected disabled>
+
+Select Passenger
+
+</option>
 
 <c:forEach items="${passengers}" var="p">
+
 <option value="${p.id}">
+
 ${p.passengerName}
+
 </option>
+
 </c:forEach>
 
 </select>
 
-<br><br>
 
-Flight:
+<select class="input-box" name="flightId">
 
-<select name="flightId">
+<option selected disabled>
+
+Select Flight
+
+</option>
 
 <c:forEach items="${flights}" var="f">
+
 <option value="${f.id}">
+
 ${f.flightName}
+
 </option>
+
 </c:forEach>
 
 </select>
 
-<br><br>
 
-Number of Seats:
+<input
+class="input-box"
+type="number"
+name="numberOfSeats"
+placeholder="Number of Seats"
+required>
 
-<input type="number" name="numberOfSeats">
-
-<br><br>
-
-<input type="submit" value="Book Flight">
+<input
+class="submit-btn"
+type="submit"
+value="Book Flight">
 
 </form>
+
+</div>
 
 </body>
 </html>

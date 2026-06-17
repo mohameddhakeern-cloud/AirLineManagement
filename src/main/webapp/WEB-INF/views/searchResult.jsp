@@ -1,40 +1,62 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html;charset=UTF-8"%>
+
 <%@ taglib prefix="c"
 uri="http://java.sun.com/jsp/jstl/core"%>
 
+<!DOCTYPE html>
 <html>
 <head>
+
+<meta charset="UTF-8">
+
 <title>Search Result</title>
+
+<link rel="stylesheet"
+href="/css/style.css">
+
 </head>
 <body>
 
-<h2>Available Flights</h2>
+<h1 class="page-title">
 
-<table border="1">
+✈ Available Flights
 
-<tr>
-<th>Flight Name</th>
-<th>Source</th>
-<th>Destination</th>
-<th>Price</th>
-<th>Available Seats</th>
-</tr>
+</h1>
+
+<div class="result-container">
 
 <c:forEach items="${flights}" var="f">
 
-<tr>
-<td>${f.flightName}</td>
-<td>${f.source}</td>
-<td>${f.destination}</td>
-<td>${f.price}</td>
-<td>${f.availableSeats}</td>
-</tr>
+<div class="flight-card">
+
+<h2>${f.flightName}</h2>
+
+<p>
+
+📍 ${f.source}
+→
+${f.destination}
+
+</p>
+
+<p>
+
+💰 ₹ ${f.price}
+
+</p>
+
+<p>
+
+💺 Available Seats :
+${f.availableSeats}
+
+</p>
+
+</div>
 
 </c:forEach>
 
-</table>
+</div>
 
 </body>
 </html>

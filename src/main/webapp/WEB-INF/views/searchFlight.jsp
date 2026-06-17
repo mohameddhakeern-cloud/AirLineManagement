@@ -1,31 +1,59 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html;charset=UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
+
+<meta charset="UTF-8">
+
 <title>Search Flight</title>
+
+<link rel="stylesheet" href="/css/style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 </head>
 <body>
 
-<h2>Search Flight</h2>
+<div class="search-container">
+
+<div class="search-card">
+
+<h1>
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+Search Flights
+
+</h1>
 
 <form action="/searchFlight" method="post">
 
-Source:
+<input
+class="input-box"
+type="text"
+name="source"
+placeholder="Enter Source"
+required>
 
-<input type="text" name="source">
+<input
+class="input-box"
+type="text"
+name="destination"
+placeholder="Enter Destination"
+required>
 
-<br><br>
-
-Destination:
-
-<input type="text" name="destination">
-
-<br><br>
-
-<input type="submit" value="Search">
+<input
+class="submit-btn"
+type="submit"
+value="Search">
 
 </form>
+
+</div>
+
+</div>
 
 </body>
 </html>
