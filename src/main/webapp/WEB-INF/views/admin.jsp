@@ -31,6 +31,16 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
 <li><a href="/searchFlight">Search</a></li>
 
+<li>
+
+<a href="/logout">
+
+Logout
+
+</a>
+
+</li>
+
 </ul>
 
 </nav>

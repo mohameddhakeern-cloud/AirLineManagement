@@ -13,6 +13,13 @@ import com.deltaairline.entity.Passenger;
 import com.deltaairline.repository.BookingRepository;
 import com.deltaairline.repository.FlightRepository;
 import com.deltaairline.repository.PassengerRepository;
+import jakarta.servlet.http.HttpServletResponse;
+
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+
+import com.deltaairline.service.EmailService;
 
 @Controller
 public class BookingController {
@@ -25,6 +32,9 @@ public class BookingController {
 
     @Autowired
     private FlightRepository flightRepo;
+    
+    @Autowired
+    private EmailService emailService;
 
     @GetMapping("/addBooking")
     public String addBookingPage(Model model) {
@@ -57,9 +67,36 @@ public class BookingController {
 
             flightRepo.save(flight);
 
-            bookingRepo.save(booking);
+            // Generate PNR
+            String pnr = "DEL" + (System.currentTimeMillis() % 1000000);
 
-            return "redirect:/viewBookings";
+            booking.setPnr(pnr);
+
+            bookingRepo.save(booking);
+            
+            String body =
+                    "Dear "
+                    + passenger.getPassengerName()
+                    + ",\n\n"
+                    + "Your booking has been confirmed.\n\n"
+                    + "PNR : " + booking.getPnr()
+                    + "\nFlight : " + flight.getFlightName()
+                    + "\nRoute : "
+                    + flight.getSource()
+                    + " -> "
+                    + flight.getDestination()
+                    + "\nSeats : "
+                    + numberOfSeats
+                    + "\nBooking Date : "
+                    + booking.getBookingDate()
+                    + "\n\nThank you for choosing Delta Airlines.";
+
+            emailService.sendMail(
+                    passenger.getEmail(),
+                    "Delta Airlines Ticket Confirmation",
+                    body);
+
+            return "redirect:/ticket/" + booking.getId();
         }
         else {
 
@@ -91,6 +128,81 @@ public class BookingController {
         bookingRepo.delete(booking);
 
         return "redirect:/viewBookings";
+    }
+    
+    @GetMapping("/ticket/{id}")
+    public String showTicket(@PathVariable int id,
+                             Model model) {
+
+        Booking booking = bookingRepo.findById(id).get();
+
+        model.addAttribute("booking", booking);
+
+        return "ticket";
+    }
+    
+    @GetMapping("/downloadTicket/{id}")
+    public void downloadTicket(@PathVariable int id,
+                               HttpServletResponse response)
+            throws Exception {
+
+        Booking booking = bookingRepo.findById(id).get();
+
+        response.setContentType("application/pdf");
+
+        response.setHeader(
+                "Content-Disposition",
+                "attachment; filename=ticket_" +
+                        booking.getPnr() + ".pdf");
+
+        Document document = new Document();
+
+        PdfWriter.getInstance(
+                document,
+                response.getOutputStream());
+
+        document.open();
+
+        document.add(new Paragraph(
+                "DELTA AIRLINES E-TICKET"));
+
+        document.add(new Paragraph(" "));
+
+        document.add(new Paragraph(
+                "PNR : " + booking.getPnr()));
+
+        document.add(new Paragraph(
+                "Passenger : "
+                        + booking.getPassenger()
+                        .getPassengerName()));
+
+        document.add(new Paragraph(
+                "Flight : "
+                        + booking.getFlight()
+                        .getFlightName()));
+
+        document.add(new Paragraph(
+                "Route : "
+                        + booking.getFlight().getSource()
+                        + " -> "
+                        + booking.getFlight().getDestination()));
+
+        document.add(new Paragraph(
+                "Booking Date : "
+                        + booking.getBookingDate()));
+
+        document.add(new Paragraph(
+                "Seats : "
+                        + booking.getNumberOfSeats()));
+
+        double total =
+                booking.getFlight().getPrice()
+                        * booking.getNumberOfSeats();
+
+        document.add(new Paragraph(
+                "Total Amount : ₹" + total));
+
+        document.close();
     }
 
 }

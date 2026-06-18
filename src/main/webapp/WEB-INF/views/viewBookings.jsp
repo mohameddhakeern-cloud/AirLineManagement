@@ -31,6 +31,8 @@ href="/css/style.css">
 
 <th>ID</th>
 
+<th>PNR</th>
+
 <th>Passenger</th>
 
 <th>Flight</th>
@@ -49,6 +51,8 @@ href="/css/style.css">
 <tr>
 
 <td>${b.id}</td>
+
+<td class="pnr">${b.pnr}</td>
 
 <td>${b.passenger.passengerName}</td>
 

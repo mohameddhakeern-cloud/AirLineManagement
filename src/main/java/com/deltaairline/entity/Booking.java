@@ -14,6 +14,8 @@ public class Booking {
     private LocalDate bookingDate;
 
     private int numberOfSeats;
+    
+    private String pnr;
 
     @ManyToOne
     @JoinColumn(name = "passenger_id")
@@ -60,5 +62,13 @@ public class Booking {
 
     public void setFlight(Flight flight) {
         this.flight = flight;
+    }
+    
+    public String getPnr() {
+        return pnr;
+    }
+
+    public void setPnr(String pnr) {
+        this.pnr = pnr;
     }
 }
