@@ -16,6 +16,8 @@ public class Booking {
     private int numberOfSeats;
     
     private String pnr;
+    
+    private String status;
 
     @ManyToOne
     @JoinColumn(name = "passenger_id")
@@ -70,5 +72,13 @@ public class Booking {
 
     public void setPnr(String pnr) {
         this.pnr = pnr;
+    }
+    
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

@@ -71,6 +71,8 @@ public class BookingController {
             String pnr = "DEL" + (System.currentTimeMillis() % 1000000);
 
             booking.setPnr(pnr);
+            
+            booking.setStatus("CONFIRMED");
 
             bookingRepo.save(booking);
             
@@ -91,11 +93,18 @@ public class BookingController {
                     + booking.getBookingDate()
                     + "\n\nThank you for choosing Delta Airlines.";
 
-            emailService.sendMail(
-                    passenger.getEmail(),
-                    "Delta Airlines Ticket Confirmation",
-                    body);
+            try {
 
+                emailService.sendMail(
+                        passenger.getEmail(),
+                        "Delta Airlines Ticket Confirmation",
+                        body);
+
+            } catch (Exception e) {
+
+                System.out.println("Email failed : " + e.getMessage());
+
+            }
             return "redirect:/ticket/" + booking.getId();
         }
         else {
@@ -125,7 +134,9 @@ public class BookingController {
 
         flightRepo.save(flight);
 
-        bookingRepo.delete(booking);
+        booking.setStatus("CANCELLED");
+
+        bookingRepo.save(booking);
 
         return "redirect:/viewBookings";
     }

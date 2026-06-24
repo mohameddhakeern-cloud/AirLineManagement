@@ -20,7 +20,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
 <i class="fa-solid fa-user-shield"></i>
 
-Admin Login
+User Login
 
 </h1>
 
@@ -28,9 +28,9 @@ Admin Login
 
 <input
 class="input-box"
-type="text"
-name="username"
-placeholder="Username"
+type="email"
+name="email"
+placeholder="Email"
 required>
 
 <input
@@ -46,6 +46,13 @@ type="submit"
 value="Login">
 
 </form>
+
+<br>
+
+<p align="center">
+Don't have an account?
+<a href="/register">Register Here</a>
+</p>
 
 </div>
 

@@ -43,6 +43,8 @@ href="/css/style.css">
 
 <th>Action</th>
 
+<th>Status</th>
+
 </tr>
 
 
@@ -61,6 +63,8 @@ href="/css/style.css">
 <td>${b.bookingDate}</td>
 
 <td>${b.numberOfSeats}</td>
+
+<td>${b.status}</td>
 
 <td>
 

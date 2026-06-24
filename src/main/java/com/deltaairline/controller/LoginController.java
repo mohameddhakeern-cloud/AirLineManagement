@@ -2,11 +2,18 @@ package com.deltaairline.controller;
 
 import jakarta.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import com.deltaairline.entity.User;
+import com.deltaairline.repository.UserRepository;
+
 @Controller
 public class LoginController {
+
+    @Autowired
+    UserRepository userRepo;
 
     @GetMapping("/login")
     public String loginPage() {
@@ -15,20 +22,22 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam String username,
+    public String login(@RequestParam String email,
                         @RequestParam String password,
                         HttpSession session) {
 
-        if(username.equals("admin")
-                && password.equals("admin123")) {
+        User user = userRepo.findByEmailAndPassword(email, password);
 
-            session.setAttribute("user", username);
+        if (user != null) {
+
+            session.setAttribute("user", user);
 
             return "redirect:/dashboard";
         }
 
         return "loginFail";
     }
+
     @GetMapping("/logout")
     public String logout(HttpSession session) {
 
