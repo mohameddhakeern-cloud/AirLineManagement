@@ -7,7 +7,7 @@ pageEncoding="UTF-8"%>
 
 <meta charset="UTF-8">
 
-<title>Add Flight</title>
+<title>Add Passenger</title>
 
 <link rel="stylesheet" href="/css/style.css">
 
@@ -20,51 +20,51 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 <div class="form-container">
 
 <h1>
-<i class="fa-solid fa-plane"></i>
-Add Flight
+<i class="fa-solid fa-user"></i>
+Add Passenger
 </h1>
 
-<form action="/saveFlight" method="post">
+<form action="/admin/savePassenger" method="post">
 
 <input
 class="input-box"
 type="text"
-name="flightName"
-placeholder="Flight Name"
+name="passengerName"
+placeholder="Passenger Name"
 required>
 
 <input
 class="input-box"
 type="text"
-name="source"
-placeholder="Source"
-required>
-
-<input
-class="input-box"
-type="text"
-name="destination"
-placeholder="Destination"
+name="gender"
+placeholder="Gender"
 required>
 
 <input
 class="input-box"
 type="number"
-name="price"
-placeholder="Price"
+name="age"
+placeholder="Age"
 required>
 
 <input
 class="input-box"
-type="number"
-name="availableSeats"
-placeholder="Available Seats"
+type="text"
+name="phone"
+placeholder="Phone Number"
+required>
+
+<input
+class="input-box"
+type="email"
+name="email"
+placeholder="Email Address"
 required>
 
 <input
 class="submit-btn"
 type="submit"
-value="Add Flight">
+value="Add Passenger">
 
 </form>
 

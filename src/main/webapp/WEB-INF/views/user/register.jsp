@@ -16,7 +16,7 @@ pageEncoding="UTF-8"%>
 
 <h1 align="center">User Registration</h1>
 
-<form action="/saveUser" method="post">
+<form action="/user/saveUser" method="post">
 
 Name :
 <input type="text" name="name">

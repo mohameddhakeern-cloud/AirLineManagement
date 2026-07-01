@@ -24,7 +24,7 @@ User Login
 
 </h1>
 
-<form action="/login" method="post">
+<form action="/user/login" method="post">
 
 <input
 class="input-box"
@@ -51,7 +51,7 @@ value="Login">
 
 <p align="center">
 Don't have an account?
-<a href="/register">Register Here</a>
+<a href="/user/register">Register Here</a>
 </p>
 
 </div>

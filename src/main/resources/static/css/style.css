@@ -701,3 +701,76 @@ color:#0077ff;
 margin-top:20px;
 font-size:40px;
 }
+
+.seat-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,70px);
+
+    gap:15px;
+
+    justify-content:center;
+
+    margin-top:20px;
+
+}
+
+.seat{
+
+    width:60px;
+
+    height:60px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:8px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+.available{
+
+    background:#28a745;
+
+    color:white;
+
+}
+
+.booked{
+
+    background:#dc3545;
+
+    color:white;
+
+    cursor:not-allowed;
+
+}
+
+.selected{
+
+    background:#0d6efd !important;
+
+}
+
+.seat:hover{
+
+    transform:scale(1.1);
+}
+
+
+
+
+.gap{
+
+    display:inline-block;
+
+    width:60px;
+}

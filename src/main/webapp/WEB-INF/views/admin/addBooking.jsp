@@ -27,7 +27,7 @@ Book Flight
 
 </h1>
 
-<form action="/saveBooking" method="post">
+<form action="/admin/saveBooking" method="post">
 
 <select class="input-box" name="passengerId">
 

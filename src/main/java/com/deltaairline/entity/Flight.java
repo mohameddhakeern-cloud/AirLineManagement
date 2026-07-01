@@ -13,6 +13,16 @@ public class Flight {
     private String destination;
     private double price;
     private int availableSeats;
+    private String status;
+
+    private String gate;
+
+    private String terminal;
+
+    private String departureTime;
+
+    private String arrivalTime;
+    
 
     public Flight() {
     }
@@ -69,4 +79,44 @@ public class Flight {
     public void setAvailableSeats(int availableSeats) {
         this.availableSeats = availableSeats;
     }
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getGate() {
+		return gate;
+	}
+
+	public void setGate(String gate) {
+		this.gate = gate;
+	}
+
+	public String getTerminal() {
+		return terminal;
+	}
+
+	public void setTerminal(String terminal) {
+		this.terminal = terminal;
+	}
+
+	public String getDepartureTime() {
+		return departureTime;
+	}
+
+	public void setDepartureTime(String departureTime) {
+		this.departureTime = departureTime;
+	}
+
+	public String getArrivalTime() {
+		return arrivalTime;
+	}
+
+	public void setArrivalTime(String arrivalTime) {
+		this.arrivalTime = arrivalTime;
+	}
 }

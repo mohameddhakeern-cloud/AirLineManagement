@@ -70,7 +70,7 @@ href="/css/style.css">
 
 <a class="cancel-btn"
 
-href="/cancelBooking/${b.id}">
+href="/user/cancelBooking/${b.id}">
 
 Cancel
 

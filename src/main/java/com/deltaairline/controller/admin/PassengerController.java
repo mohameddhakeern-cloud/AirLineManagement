@@ -1,4 +1,4 @@
-package com.deltaairline.controller;
+package com.deltaairline.controller.admin;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +9,7 @@ import com.deltaairline.entity.Passenger;
 import com.deltaairline.repository.PassengerRepository;
 
 @Controller
+@RequestMapping("/admin")
 public class PassengerController {
 
     @Autowired
@@ -16,7 +17,7 @@ public class PassengerController {
 
     @GetMapping("/addPassenger")
     public String addPassengerPage() {
-        return "addPassenger";
+        return "admin/addPassenger";
     }
 
     @PostMapping("/savePassenger")
@@ -24,7 +25,7 @@ public class PassengerController {
 
         repo.save(passenger);
 
-        return "redirect:/viewPassengers";
+        return "redirect:/admin/viewPassengers";
     }
 
     @GetMapping("/viewPassengers")
@@ -32,6 +33,6 @@ public class PassengerController {
 
         model.addAttribute("passengers", repo.findAll());
 
-        return "viewPassengers";
+        return "admin/viewPassengers";
     }
 }

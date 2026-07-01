@@ -23,13 +23,13 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
 <li><a href="/">Home</a></li>
 
-<li><a href="/viewFlights">Flights</a></li>
+<li><a href="/admin/viewFlights">Flights</a></li>
 
-<li><a href="/viewPassengers">Passengers</a></li>
+<li><a href="/admin/viewPassengers">Passengers</a></li>
 
-<li><a href="/viewBookings">Bookings</a></li>
+<li><a href="/admin/viewBookings">Bookings</a></li>
 
-<li><a href="/searchFlight">Search</a></li>
+<li><a href="/admin/searchFlight">Search</a></li>
 
 <li>
 
@@ -56,7 +56,7 @@ Logout
 Book your dream destination with comfort and confidence.
 </p>
 
-<a href="/searchFlight" class="hero-btn">
+<a href="/user/searchFlight" class="hero-btn">
 Search Flights
 </a>
 
@@ -112,9 +112,9 @@ Search Flights
 
 <p>Manage flights and schedules.</p>
 
-<a class="button" href="/addFlight">Add Flight</a>
+<a class="button" href="/admin/addFlight">Add Flight</a>
 
-<a class="button" href="/viewFlights">View Flights</a>
+<a class="button" href="/admin/viewFlights">View Flights</a>
 
 </div>
 
@@ -127,9 +127,9 @@ Search Flights
 
 <p>Passenger information management.</p>
 
-<a class="button" href="/addPassenger">Add Passenger</a>
+<a class="button" href="/admin/addPassenger">Add Passenger</a>
 
-<a class="button" href="/viewPassengers">View Passengers</a>
+<a class="button" href="/admin/viewPassengers">View Passengers</a>
 
 </div>
 
@@ -142,9 +142,9 @@ Search Flights
 
 <p>Book and manage tickets.</p>
 
-<a class="button" href="/addBooking">Book Flight</a>
+<a class="button" href="/admin/addBooking">Book Flight</a>
 
-<a class="button" href="/viewBookings">View Bookings</a>
+<a class="button" href="/admin/viewBookings">View Bookings</a>
 
 </div>
 
@@ -157,7 +157,7 @@ Search Flights
 
 <p>Find flights by source and destination.</p>
 
-<a class="button" href="/searchFlight">
+<a class="button" href="/user/searchFlight">
 Search Flight
 </a>
 

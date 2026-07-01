@@ -12,7 +12,7 @@ public class Passenger {
     private String passengerName;
     private String gender;
     private int age;
-    private String phone;
+    private String phoneNumber;
     private String email;
 
     public Passenger() {
@@ -55,14 +55,13 @@ public class Passenger {
         this.age = age;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
-
     public String getEmail() {
         return email;
     }

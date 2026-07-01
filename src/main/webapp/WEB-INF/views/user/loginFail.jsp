@@ -26,7 +26,7 @@ Invalid Username or Password
 <center>
 
 <a class="button"
-href="/login">
+href="/user/login">
 
 Try Again
 

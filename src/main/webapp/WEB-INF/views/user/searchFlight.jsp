@@ -28,7 +28,7 @@ Search Flights
 
 </h1>
 
-<form action="/searchFlight" method="post">
+<form action="/user/searchFlight" method="post">
 
 <input
 class="input-box"

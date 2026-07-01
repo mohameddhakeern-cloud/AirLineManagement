@@ -1,11 +1,15 @@
-package com.deltaairline.controller;
+package com.deltaairline.controller.admin;
 
 import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.deltaairline.entity.Booking;
 import com.deltaairline.entity.Flight;
@@ -13,15 +17,15 @@ import com.deltaairline.entity.Passenger;
 import com.deltaairline.repository.BookingRepository;
 import com.deltaairline.repository.FlightRepository;
 import com.deltaairline.repository.PassengerRepository;
-import jakarta.servlet.http.HttpServletResponse;
-
+import com.deltaairline.service.EmailService;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
-import com.deltaairline.service.EmailService;
+import jakarta.servlet.http.HttpServletResponse;
 
 @Controller
+@RequestMapping("/admin")
 public class BookingController {
 
     @Autowired
@@ -42,7 +46,7 @@ public class BookingController {
         model.addAttribute("passengers", passengerRepo.findAll());
         model.addAttribute("flights", flightRepo.findAll());
 
-        return "addBooking";
+        return "admin/addBooking";
     }
 
     @PostMapping("/saveBooking")
@@ -105,11 +109,11 @@ public class BookingController {
                 System.out.println("Email failed : " + e.getMessage());
 
             }
-            return "redirect:/ticket/" + booking.getId();
+            return "redirect:/user/ticket/" + booking.getId();
         }
         else {
 
-            return "bookingFail";
+            return "useer/bookingFail";
         }
     }
 
@@ -118,7 +122,7 @@ public class BookingController {
 
         model.addAttribute("bookings", bookingRepo.findAll());
 
-        return "viewBookings";
+        return "admin/viewBookings";
     }
     
     @GetMapping("/cancelBooking/{id}")
@@ -138,7 +142,7 @@ public class BookingController {
 
         bookingRepo.save(booking);
 
-        return "redirect:/viewBookings";
+        return "redirect:/admin/viewBookings";
     }
     
     @GetMapping("/ticket/{id}")
@@ -149,7 +153,7 @@ public class BookingController {
 
         model.addAttribute("booking", booking);
 
-        return "ticket";
+        return "user/ticket";
     }
     
     @GetMapping("/downloadTicket/{id}")

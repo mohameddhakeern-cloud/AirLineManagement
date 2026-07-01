@@ -1,14 +1,19 @@
-package com.deltaairline.controller;
+package com.deltaairline.controller.admin;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.deltaairline.entity.Flight;
 import com.deltaairline.repository.FlightRepository;
 
 @Controller
+@RequestMapping("/admin")
 public class FlightController {
 
     @Autowired
@@ -16,18 +21,18 @@ public class FlightController {
 
     @GetMapping("/flightHome")
     public String home() {
-        return "index";
+        return "common/index";
     }
 
     @GetMapping("/addFlight")
     public String addFlightPage() {
-        return "addFlight";
+        return "admin/addFlight";
     }
     
     @GetMapping("/searchFlight")
     public String searchPage() {
 
-        return "searchFlight";
+        return "admin/searchFlight";
     }
     
     @PostMapping("/searchFlight")
@@ -39,15 +44,17 @@ public class FlightController {
                 "flights",
                 repo.findBySourceAndDestination(source, destination));
 
-        return "searchResult";
+        return "admin/searchResult";
     }
 
     @PostMapping("/saveFlight")
-    public String saveFlight(@ModelAttribute Flight flight) {
+    public String saveFlight(@ModelAttribute Flight flight ) {
 
         repo.save(flight);
+      
+       
 
-        return "redirect:/viewFlights";
+        return "redirect:/admin/viewFlights";
     }
 
     @GetMapping("/viewFlights")
@@ -55,6 +62,6 @@ public class FlightController {
 
         model.addAttribute("flights", repo.findAll());
 
-        return "viewFlights";
+        return "admin/viewFlights";
     }
 }
